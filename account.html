@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clahan Bank - Accounts</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff7f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .navbar {
+      background-color: #f36f21;
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+      font-weight: bold;
+    }
+    .account-container {
+      margin-top: 50px;
+    }
+    .tab-button {
+      background-color: #f36f21;
+      color: white;
+      font-weight: bold;
+    }
+    .tab-button.active {
+      background-color: #d35400;
+    }
+    .form-card {
+      border-radius: 12px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      background: white;
+    }
+    footer {
+      background-color: #f36f21;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Clahan Bank</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="accounts.html">Accounts</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Accounts Section -->
+  <div class="container account-container">
+    <div class="text-center mb-4">
+      <h2>Open Your Account</h2>
+      <p class="text-muted">Choose your account type and fill in the details below</p>
+    </div>
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs justify-content-center mb-4" id="accountTabs">
+      <li class="nav-item">
+        <button class="nav-link tab-button active" id="savings-tab" onclick="showForm('savings')">Savings Account</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link tab-button" id="current-tab" onclick="showForm('current')">Current Account</button>
+      </li>
+    </ul>
+
+    <!-- Savings Account Form -->
+    <div id="savings-form" class="form-card">
+      <form onsubmit="submitForm(event)">
+        <div class="mb-3">
+          <label>First Name</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Last Name</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Email Address</label>
+          <input type="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Phone Number</label>
+          <input type="tel" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Username</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Password</label>
+          <input type="password" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Confirm Password</label>
+          <input type="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+      </form>
+    </div>
+
+    <!-- Current Account Form -->
+    <div id="current-form" class="form-card d-none">
+      <form onsubmit="submitForm(event)">
+        <div class="mb-3">
+          <label>Company Name</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Company Address</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Owner Name</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Email ID</label>
+          <input type="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Password</label>
+          <input type="password" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label>Confirm Password</label>
+          <input type="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Clahan Bank. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS + Custom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function showForm(formType) {
+      document.getElementById('savings-form').classList.add('d-none');
+      document.getElementById('current-form').classList.add('d-none');
+      document.getElementById('savings-tab').classList.remove('active');
+      document.getElementById('current-tab').classList.remove('active');
+
+      if (formType === 'savings') {
+        document.getElementById('savings-form').classList.remove('d-none');
+        document.getElementById('savings-tab').classList.add('active');
+      } else {
+        document.getElementById('current-form').classList.remove('d-none');
+        document.getElementById('current-tab').classList.add('active');
+      }
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      alert("✅ Application submitted successfully!");
+    }
+  </script>
+</body>
+</html>
