@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Application - Clahan Bank</title>
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Clahan Bank</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Loan Application Form -->
+  <div class="container">
+    <div class="form-box">
+      <h2>Loan Application Form</h2>
+      <form id="loanForm">
+        <!-- Personal Info -->
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
+
+        <!-- Loan Info -->
+        <label for="loanType">Loan Type</label>
+        <select id="loanType" name="loanType" required>
+          <option value="">-- Select Loan Type --</option>
+          <option value="home">Home Loan</option>
+          <option value="personal">Personal Loan</option>
+          <option value="car">Car Loan</option>
+          <option value="education">Education Loan</option>
+        </select>
+
+        <label for="amount">Loan Amount (₹)</label>
+        <input type="number" id="amount" name="amount" min="10000" step="1000" required>
+
+        <label for="duration">Loan Duration (Years)</label>
+        <input type="number" id="duration" name="duration" min="1" max="30" required>
+
+        <label for="income">Annual Income (₹)</label>
+        <input type="number" id="income" name="income" min="50000" step="5000" required>
+
+        <!-- Buttons -->
+        <button type="submit">Apply Now</button>
+        <a href="#" class="back-home">Back to Home</a>
+      </form>
+    </div>
+  </div>
+
+  <!-- Validation Script -->
+  <script>
+    document.getElementById("loanForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let amount = document.getElementById("amount").value;
+      let income = document.getElementById("income").value;
+      let duration = document.getElementById("duration").value;
+
+      if (amount > income * 15) {
+        alert("❌ Loan amount exceeds eligible limit (Max 15x your income).");
+        return;
+      }
+
+      if (duration < 1 || duration > 30) {
+        alert("❌ Loan duration should be between 1 and 30 years.");
+        return;
+      }
+
+      alert("✅ Loan Application Submitted Successfully!");
+    });
+  </script>
+</body>
+</html>
