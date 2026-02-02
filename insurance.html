@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Application - Clahan Bank</title>
+  <!-- Linking external CSS -->
+  <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+  <header>
+    <h1>Clahan Bank</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Insurance Application</h2>
+      <form id="insuranceForm">
+        <label>First Name</label>
+        <input type="text" name="firstName" required>
+
+        <label>Last Name</label>
+        <input type="text" name="lastName" required>
+
+        <label>Username</label>
+        <input type="text" name="username" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <label>Confirm Password</label>
+        <input type="password" name="confirmPassword" required>
+
+        <label>Qualification</label>
+        <input type="text" name="qualification">
+
+        <label>Designation</label>
+        <input type="text" name="designation">
+
+        <label>Salary</label>
+        <input type="number" name="salary" required>
+
+        <label>Insurance Term</label>
+        <select name="term" required>
+          <option value="">-- Select Term --</option>
+          <option value="5">5 Years</option>
+          <option value="10">10 Years</option>
+          <option value="15">15 Years</option>
+          <option value="20">20 Years</option>
+        </select>
+
+        <button type="submit">Submit Application</button>
+      </form>
+
+      <a href="index.html" class="back-home">← Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>
